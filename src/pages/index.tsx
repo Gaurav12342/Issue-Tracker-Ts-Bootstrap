@@ -1,4 +1,4 @@
-import { Chip, Button, SearchInput, Select } from "components";
+import { Chip, Button, SearchInput, Select, Spinner } from "components";
 import { FC } from "react";
 
 const Home: FC = () => {
@@ -71,6 +71,8 @@ const Home: FC = () => {
         }}
         items={selectArray}
       />
+
+      <Spinner loading/>
     </div>
   );
 };
