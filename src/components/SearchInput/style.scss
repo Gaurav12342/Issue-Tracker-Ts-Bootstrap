@@ -1,0 +1,16 @@
+$color_1: #696969;
+$white: #ffffff;
+
+.search-label {
+  color: $white;
+  font-weight: 700;
+}
+
+.search-input {
+  background-color: #000 !important;
+  color: #fff !important;
+
+  &::placeholder {
+    color: $color_1 !important;
+  }
+}

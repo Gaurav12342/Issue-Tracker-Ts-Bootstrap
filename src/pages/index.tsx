@@ -1,5 +1,5 @@
+import { Chip, Button, SearchInput } from "components";
 import { FC } from "react";
-import Chip from "../components/Chip";
 
 const Home: FC = () => {
   const arrayData: any = [
@@ -52,6 +52,10 @@ const Home: FC = () => {
           />
         );
       })}
+
+      <Button>Yo yo honey sing</Button>
+
+      <SearchInput placeholder="Search" label="Search Issues" />
     </div>
   );
 };
