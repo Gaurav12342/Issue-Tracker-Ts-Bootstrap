@@ -1,0 +1,27 @@
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+
+//custom color to be mapped
+$red: #ff0000;
+$blue: #0000ff;
+$cyan: #00ffff;
+$orange: #ffa500;
+$lime: #00ff00;
+$white: #ffffff;
+$rebeccapurple: #663399;
+
+$custom-colors: (
+  red: $red,
+  blue: $blue,
+  cyan: $cyan,
+  orange: $orange,
+  lime: $lime,
+  white: $white,
+  rebeccapurple: $rebeccapurple,
+);
+
+// Merge the maps
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+// Import Bootstrap and its default variables
+@import "../node_modules/bootstrap";
