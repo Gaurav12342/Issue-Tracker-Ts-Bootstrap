@@ -1,0 +1,10 @@
+$color_1: white;
+$background-color_1: #000000;
+
+.App {
+  background-color: $background-color_1;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
