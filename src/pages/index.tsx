@@ -1,4 +1,11 @@
-import { Chip, Button, SearchInput, Select, Spinner } from "components";
+import {
+  Chip,
+  Button,
+  SearchInput,
+  Select,
+  Spinner,
+  ItemCard,
+} from "components";
 import { FC } from "react";
 
 const Home: FC = () => {
@@ -49,7 +56,7 @@ const Home: FC = () => {
   ];
   return (
     <div>
-      {arrayData?.map((data: any) => {
+      {/* {arrayData?.map((data: any) => {
         return (
           <Chip
             color={data?.color}
@@ -72,7 +79,9 @@ const Home: FC = () => {
         items={selectArray}
       />
 
-      <Spinner loading/>
+      <Spinner loading /> */}
+
+      <ItemCard />
     </div>
   );
 };
