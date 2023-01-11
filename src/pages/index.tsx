@@ -5,6 +5,7 @@ import {
   Select,
   Spinner,
   ItemCard,
+  Pagination,
 } from "components";
 import { FC } from "react";
 
@@ -81,7 +82,9 @@ const Home: FC = () => {
 
       <Spinner loading /> */}
 
-      <ItemCard />
+      <ItemCard /> 
+
+      <Pagination nextText="Next" prevText="Previous" page={10}/>
     </div>
   );
 };

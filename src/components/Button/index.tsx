@@ -13,7 +13,7 @@ const Button: FC<IButtonProps> = (props) => {
     <div>
       <button
         disabled={disabled}
-        className="btn btn-warning"
+        className="btn btn-yellow"
         type="button"
         onClick={onClick}
         {...props}

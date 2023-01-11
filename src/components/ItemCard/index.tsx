@@ -2,7 +2,12 @@ import Chip from "components/Chip";
 import { FC } from "react";
 import "./style.scss";
 
-const ItemCard: FC = () => {
+interface IItemCardProps {
+  title?: string;
+}
+
+const ItemCard: FC<IItemCardProps> = (props) => {
+  const { title } = props;
   return (
     <div>
       <div className="card col-10 bg-dark border border-secondary-subtle">
