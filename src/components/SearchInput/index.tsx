@@ -10,7 +10,7 @@ const SearchInput: FC<ISearchInput> = (props) => {
   const { label, placeholder } = props;
   return (
     <div className="mb-3">
-      <label className="form-label search-label">{label}</label>
+      <label className="form-label search-label d-flex">{label}</label>
       <input
         type={"search"}
         className="form-control search-input"

@@ -2,15 +2,25 @@ import Chip from "components/Chip";
 import { FC } from "react";
 import "./style.scss";
 
+interface IChipData {
+  title?: string;
+  color?: string;
+}
 interface IItemCardProps {
   title?: string;
+  chipData?: IChipData;
+  description?: string;
+  numOfResponse?: number | string;
+  avatarImgUrl?: string;
+  onClick?: () => void;
 }
 
 const ItemCard: FC<IItemCardProps> = (props) => {
-  const { title } = props;
+  const { title, chipData, description, numOfResponse, avatarImgUrl, onClick } =
+    props;
   return (
     <div>
-      <div className="card col-10 bg-dark border border-secondary-subtle">
+      <div className="card col-10 bg-dark border border-secondary-subtle w-100 my-3">
         <div className="card-container">
           <div className="col-1 d-flex align-items-center">
             <svg
@@ -26,25 +36,34 @@ const ItemCard: FC<IItemCardProps> = (props) => {
             </svg>
           </div>
           <div className="col-9">
-            <h6 className="card-title d-flex text-yellow">
+            <h6
+              onClick={onClick}
+              className="card-title d-flex text-yellow text-start heading"
+            >
               <span>
-                Dependencies is actually working fine. I just wanted to let you
-                know you're great all the time &nbsp;{" "}
-                <Chip color={"red"} title={"Submit"} />
+                {title} &nbsp;{" "}
+                {chipData?.title && (
+                  <Chip color={chipData?.color} title={chipData?.title} />
+                )}
               </span>
             </h6>
-            <p className="card-text fst-normal text-light-emphasis">
-              #998 opened 1 hour ago by Tanner
-            </p>
+            {description && (
+              <p className="card-text fst-normal text-light-emphasis text-start">
+                {description}
+              </p>
+            )}
           </div>
           <div className="col-2 d-flex align-items-center justify-content-center">
-            <div className="img-container">
-              <img
-                src="https://res.cloudinary.com/uidotdev/image/twitter_name/ralex1993"
-                className="img-avatar"
-                alt="Assigned to avatar"
-              />
-            </div>
+            {avatarImgUrl && (
+              <div className="img-container">
+                <img
+                  src={avatarImgUrl}
+                  className="img-avatar"
+                  alt="Assigned to avatar"
+                />
+              </div>
+            )}
+
             <div className="icon-container">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -57,9 +76,13 @@ const ItemCard: FC<IItemCardProps> = (props) => {
                 <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
               </svg>
             </div>
-            <div>
-              <p className="card-text fst-normal text-light-emphasis">1000</p>
-            </div>
+            {numOfResponse && (
+              <div>
+                <p className="card-text fst-normal text-light-emphasis">
+                  {numOfResponse}
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </div>
