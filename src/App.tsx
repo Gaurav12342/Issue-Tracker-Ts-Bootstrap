@@ -1,6 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import Home from "pages/Issue";
+import CreateIssue from "pages/Issue/CreateIssue";
 import IssueDetail from "pages/Issue/IssueDetail";
 import { FC, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -17,13 +18,13 @@ const App: FC = () => {
     return () => window.removeEventListener("beforeunload", unloadCallback);
   }, [window]);
 
-  
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/issue/:id" element={<IssueDetail />} />
+          <Route path="/issue/add" element={<CreateIssue />} />
         </Routes>
       </BrowserRouter>
     </div>

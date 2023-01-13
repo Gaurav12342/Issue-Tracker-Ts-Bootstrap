@@ -64,6 +64,10 @@ const Home: FC = () => {
     navigate("/issue/1000");
   };
 
+  const handleAddUser = () => {
+    navigate("/issue/add");
+  };
+
   return (
     <div className="container text-center my-5">
       {/* Main Screen */}
@@ -76,7 +80,8 @@ const Home: FC = () => {
           </div>
 
           <div className=" d-flex align-items-center">
-            <p className="h4 text-white py-3">Issues List</p>
+            <p className="h4 text-white py-3 me-4">Issues List</p>
+            <Spinner loading />
           </div>
 
           <div className="col-12">
@@ -136,7 +141,7 @@ const Home: FC = () => {
             <hr className="border border-body-tertiary border-2 opacity-25"></hr>
 
             <div className="w-100">
-              <Button>Add Issue</Button>
+              <Button onClick={handleAddUser}>Add Issue</Button>
             </div>
           </div>
         </div>
