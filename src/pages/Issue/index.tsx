@@ -60,6 +60,10 @@ const Home: FC = () => {
     { name: "test-4", value: "test-4" },
   ];
 
+  const handleNavigate = () => {
+    navigate("/issue/1000");
+  };
+
   return (
     <div className="container text-center my-5">
       {/* Main Screen */}
@@ -84,6 +88,7 @@ const Home: FC = () => {
                   know you're great all the time"
                   description="#998 opened 1 hour ago by Tanner"
                   numOfResponse={1000}
+                  onClick={handleNavigate}
                   avatarImgUrl={
                     "https://res.cloudinary.com/uidotdev/image/twitter_name/ralex1993"
                   }

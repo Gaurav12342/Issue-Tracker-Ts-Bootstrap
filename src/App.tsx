@@ -1,6 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import Home from "pages/Issue";
+import IssueDetail from "pages/Issue/IssueDetail";
 import { FC, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.scss";
@@ -22,6 +23,7 @@ const App: FC = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/issue/:id" element={<IssueDetail />} />
         </Routes>
       </BrowserRouter>
     </div>
