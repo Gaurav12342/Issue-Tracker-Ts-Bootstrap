@@ -1,3 +1,17 @@
-.heading-text{
-    font-size: 54px;
+$color_1: #696969;
+$white: #ffffff;
+
+
+.heading-text {
+  font-size: 54px;
+}
+
+.textarea-input {
+  background-color: #000 !important;
+  color: #fff !important;
+  height: 10rem;
+
+  &::placeholder {
+    color: $color_1 !important;
+  }
 }

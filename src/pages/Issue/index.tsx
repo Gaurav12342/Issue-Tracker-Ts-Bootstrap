@@ -1,7 +1,7 @@
 import {
   Chip,
   Button,
-  SearchInput,
+  Input,
   Select,
   Spinner,
   ItemCard,
@@ -76,7 +76,7 @@ const Home: FC = () => {
       <div className="row align-items-start gx-5">
         <div className="col-7">
           <div>
-            <SearchInput placeholder="Search" label="Search Issues" />
+            <Input placeholder="Search" type="search" label="Search Issues" />
           </div>
 
           <div className=" d-flex align-items-center">
@@ -165,7 +165,7 @@ const Home: FC = () => {
   
         <Button>Yo yo honey sing</Button>
   
-        <SearchInput placeholder="Search" label="Search Issues" />
+        <Input placeholder="Search" label="Search Issues" />
   
         <Select
           onChange={(e: any) => {
