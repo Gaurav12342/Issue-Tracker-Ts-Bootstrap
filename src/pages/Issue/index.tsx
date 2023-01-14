@@ -9,6 +9,8 @@ import {
 } from "components";
 import { FC } from "react";
 import { useNavigate } from "react-router-dom";
+import { useQuery } from "react-query";
+import axios from "utils/AxiosInterceptor";
 import "./style.scss";
 
 const Home: FC = () => {
@@ -68,6 +70,23 @@ const Home: FC = () => {
     navigate("/issue/add");
   };
 
+  const fetchLabels = () => {
+    return axios
+      .get("labels")
+      .then((res: any) => {
+        return res;
+      })
+      .catch((error: any) => {
+        return error;
+      });
+  };
+
+  const { isLoading, isError, data, error } = useQuery(
+    ["fetch-labels"],
+    fetchLabels
+  );
+
+  console.log("Data =>", data);
   return (
     <div className="container text-center my-5">
       {/* Main Screen */}
@@ -146,46 +165,6 @@ const Home: FC = () => {
           </div>
         </div>
       </div>
-
-      {/* <ItemDetailCard /> */}
-      {/* ============================================================ */}
-
-      {/* Dummy Screen */}
-      {/* {arrayData?.map((data: any) => {
-          return (
-            <Chip
-              color={data?.color}
-              title={data?.name}
-              onClick={() => {
-                alert(`Number is ${data?.name}`);
-              }}
-            />
-          );
-        })}
-  
-        <Button>Yo yo honey sing</Button>
-  
-        <Input placeholder="Search" label="Search Issues" />
-  
-        <Select
-          onChange={(e: any) => {
-            console.log("event", e.target.value);
-          }}
-          items={selectArray}
-        />
-  
-        <Spinner loading /> */}
-
-      {/* <ItemCard
-          chipData={{ title: "bug", color: "red" }}
-          title="Dependencies is actually working fine. I just wanted to let you
-                  know you're great all the time"
-          description="#998 opened 1 hour ago by Tanner"
-          numOfResponse={1000}
-          avatarImgUrl={"https://res.cloudinary.com/uidotdev/image/twitter_name/ralex1993"}
-        />
-  
-        <Pagination nextText="Next" prevText="Previous" page={10} /> */}
     </div>
   );
 };

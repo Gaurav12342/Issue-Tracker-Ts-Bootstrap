@@ -6,8 +6,13 @@ import IssueDetail from "pages/Issue/IssueDetail";
 import { FC, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.scss";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
 
 const App: FC = () => {
+  // Create a client
+  const queryClient = new QueryClient();
+
   useEffect(() => {
     const unloadCallback = (event: any) => {
       event.preventDefault();
@@ -20,13 +25,16 @@ const App: FC = () => {
 
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/issue/:id" element={<IssueDetail />} />
-          <Route path="/issue/add" element={<CreateIssue />} />
-        </Routes>
-      </BrowserRouter>
+      <QueryClientProvider client={queryClient}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/issue/:id" element={<IssueDetail />} />
+            <Route path="/issue/add" element={<CreateIssue />} />
+          </Routes>
+        </BrowserRouter>
+        <ReactQueryDevtools position="bottom-right" initialIsOpen={false} />
+      </QueryClientProvider>
     </div>
   );
 };
